@@ -2672,6 +2672,10 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 1786204758}
+    - target: {fileID: 943780005, guid: edb54fdb9d93133409d8e65f0bf9b7e9, type: 3}
+      propertyPath: _strength
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e839afee79153d42bbe58d79627cf96, type: 2}
     - target: {fileID: 943780006, guid: edb54fdb9d93133409d8e65f0bf9b7e9, type: 3}
       propertyPath: m_Enabled
       value: 1

@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class ItemCtrl: MonoBehaviour
 {
+   bool isAlredyCollected = false;
 
-    bool isAlredyCollected = false;
+   
    private  void OnTriggerEnter(Collider other)
    {
+        
         if(isAlredyCollected)
             return;
+
        if(other.CompareTag("Player"))
         {
             BoxCollector boxCollector;
             if(other.TryGetComponent(out boxCollector))
             {
-                boxCollector.AddItem(this.transform);
-                isAlredyCollected = true;
+                isAlredyCollected = boxCollector.AddItem(this.transform);
             }
         }
-   }
+  }
    
 }

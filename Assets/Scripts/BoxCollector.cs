@@ -8,8 +8,8 @@ public class BoxCollector: MonoBehaviour
    [Header("Ref")]
    [SerializeField] private Transform ItemHolder;
    private PlayerController playerController;
+   private int strength;
    private int numOfItemHolding = 0;
-   private int _strength;
 
     public int NumOfItemHolding { get => numOfItemHolding; set => numOfItemHolding = value; }
 
@@ -17,32 +17,31 @@ public class BoxCollector: MonoBehaviour
     void Start()
     {
         playerController = GetComponent<PlayerController>();
-        IncreaseStrength();
-        playerController.onBoost += IncreaseStrength;
     }
 
+    
 
-    public void AddItem(Transform itemToAdd)
+
+    public bool AddItem(Transform itemToAdd)
     {   
-        if(numOfItemHolding >= _strength)
-        {
-            //animacija neka
+       if(numOfItemHolding >= playerController.Strength.amount)
+        return false;
+       
+        itemToAdd.DOMove(ItemHolder.transform.position,0.1f).OnComplete(
+        ()=>{
+            NumOfItemHolding++;
+            itemToAdd.SetParent(ItemHolder,true);
+            itemToAdd.localPosition = new Vector3(0, (float)0.25 * NumOfItemHolding,0);
+            itemToAdd.localRotation = Quaternion.identity;
         }
-        else
-        {
-            itemToAdd.DOMove(ItemHolder.transform.position,0.1f).OnComplete(
-            ()=>{
-                NumOfItemHolding++;
-                itemToAdd.SetParent(ItemHolder,true);
-                itemToAdd.localPosition = new Vector3(0, (float)0.25 * NumOfItemHolding,0);
-                itemToAdd.localRotation = Quaternion.identity;
-            }
-            );
-        }
+        );
+        
 
         //set up moving animation
         playerController.CurrentAnimation = AnimationNames.Carry.ToString();
         playerController.InactiveAnimation = AnimationNames.Run.ToString();
+
+        return true;
     }
 
     
@@ -50,7 +49,6 @@ public class BoxCollector: MonoBehaviour
     {
         foreach(Transform box in player.transform.GetChild(2))
         {
-            Debug.Log("e");
             if(box.gameObject.tag == "CollectItem")
             {
                 Destroy(box.gameObject);
@@ -73,8 +71,5 @@ public class BoxCollector: MonoBehaviour
         //vibracija
     }
 
-    private void IncreaseStrength()
-    {
-        _strength = playerController.Strength;
-    }
+   
 }

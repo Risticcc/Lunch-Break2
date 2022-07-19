@@ -11,10 +11,12 @@ public enum AnimationNames{
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class PlayerController : MonoBehaviour
 {
-    public event Action onBoost;
+   
     [Header("Settings")]
     [SerializeField] private float _speed;
-    [SerializeField] private int _strength = 3;
+
+    //[SerializeField] private int _strength = 3;
+    [SerializeField] private Strength _strength;
     [SerializeField] private FloatingJoystick _joystick;
     [SerializeField] private Rigidbody _rb;
     private string _currentAnimation;
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public string CurrentAnimation { get => _currentAnimation; set => _currentAnimation = value; }
     public string InactiveAnimation { get => _inactiveAnimation; set => _inactiveAnimation = value; }
-    public int Strength { get => _strength; set => _strength = value; }
+    public Strength Strength { get => _strength; set => _strength = value; }
 
     void Start()
     {
@@ -69,13 +71,10 @@ public class PlayerController : MonoBehaviour
             animator.speed -= decelarateRate;
     }
 
-    public void IncreaseStrength()
+    public void IncreaseStrength(int amount)
     {
         //how many boxes player can carry
-        Strength += 2;
-
-        //notify box collector
-        onBoost?.Invoke(); 
+        _strength.Boost(amount);
     }
     
 
