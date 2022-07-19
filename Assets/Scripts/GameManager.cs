@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private GameObject _gameOverPanel;
     private GameObject _levelUpPanel;
 
-    private bool firstLoad = true;
+    private static bool firstLoad = true;
     void Start()
     {
         if (Instance == null)
