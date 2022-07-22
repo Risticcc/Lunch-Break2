@@ -207,6 +207,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5642831393393017941, guid: 2a677934ae0300b4d892bd67fe36185d, type: 3}
   m_PrefabInstance: {fileID: 1019300832}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &409988508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4973255940794834671, guid: 2a677934ae0300b4d892bd67fe36185d, type: 3}
+  m_PrefabInstance: {fileID: 903987896}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &483135394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5177163506282151663, guid: 53c7153d0025d0f48a2971ea42dfaf82, type: 3}
@@ -1001,23 +1006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f517cc806a9481f4983c1c653afa9c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseClick:
-    m_Name: Mouse Click
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 4114d52c-f9aa-4a97-a584-88da0f41c483
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 548c51dd-65ef-4232-83c7-6d3e2b503738
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Mouse Click
-      m_Flags: 0
-    m_Flags: 0
   mouseDragPhysicsSpeed: 10
   mouseDragSpeed: 0.1
 --- !u!4 &1117190458
@@ -1040,6 +1028,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5642831393393017941, guid: 2a677934ae0300b4d892bd67fe36185d, type: 3}
   m_PrefabInstance: {fileID: 903987896}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1117645264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409988508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f517cc806a9481f4983c1c653afa9c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseDragPhysicsSpeed: 10
+  mouseDragSpeed: 0.1
 --- !u!1 &1143662535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8426872706735615612, guid: d879eaf928362254b8055db2dcb08731, type: 3}

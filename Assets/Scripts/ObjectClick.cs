@@ -32,7 +32,7 @@ public class ObjectClick : MonoBehaviour
         sa.Player.Press.canceled += Relesed;
         sa.Player.Enable();
 
-       // mouseClick.started += Clicked;
+        mouseClick.started += Clicked;
         
     }
 
@@ -44,7 +44,7 @@ public class ObjectClick : MonoBehaviour
         //sa.Player.Press.canceled -= Relesed;
         sa.Player.Enable();
 
-       // mouseClick.started -= Clicked;
+        mouseClick.started -= Clicked;
     }
     void Start()
     {
