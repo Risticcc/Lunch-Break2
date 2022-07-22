@@ -1,0 +1,46 @@
+{
+    "name": "ClickEvent1",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "56a8dea0-bd8f-47c7-b6fd-ded5ab1c9300",
+            "actions": [
+                {
+                    "name": "Press",
+                    "type": "Button",
+                    "id": "d8d675de-9675-4667-acfd-aad09e6e65ab",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1ea0ba9c-34d1-41d7-9834-df5f4df4c8a6",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Touch",
+            "bindingGroup": "Touch",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

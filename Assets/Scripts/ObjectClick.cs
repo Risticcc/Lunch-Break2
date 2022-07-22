@@ -15,28 +15,36 @@ public class ObjectClick : MonoBehaviour
     private Camera mainCamera;
     private BasketAnim basketAnim;
 
-    private ClickEvent sa;
+    //private ClickEvent sa;
+    private ClickEvent1 sa;
 
     private void Awake()
     {
-        sa = new ClickEvent();
+        sa = new ClickEvent1();
 ;
     }
 
     private void OnEnable()
     {
-        sa.Player.Select.started += Clicked;
-        sa.Player.Select.canceled += Relesed;
+        // sa.Player.Select.started += Clicked;
+        // sa.Player.Select.canceled += Relesed;
+        sa.Player.Press.started += Clicked;
+        sa.Player.Press.canceled += Relesed;
         sa.Player.Enable();
+
+       // mouseClick.started += Clicked;
+        
     }
 
  
 
     private void OnDisable()
     {
-        sa.Player.Select.started -= Clicked;
-        sa.Player.Select.canceled -= Relesed;
+       //sa.Player.Press.started -= Clicked;
+        //sa.Player.Press.canceled -= Relesed;
         sa.Player.Enable();
+
+       // mouseClick.started -= Clicked;
     }
     void Start()
     {
@@ -57,9 +65,11 @@ public class ObjectClick : MonoBehaviour
 
     private void Clicked(InputAction.CallbackContext obj)
     {
-        Vector2 mousePos = Mouse.current.position.ReadValue();
+        //Vector2 mousePos = Mouse.current.position.ReadValue();
+        Vector2 touchPosition= Touchscreen.current.position.ReadValue();
         RaycastHit hit;
-        Ray ray = this.mainCamera.ScreenPointToRay(mousePos);
+        Ray ray = this.mainCamera.ScreenPointToRay(touchPosition);
+        Debug.Log(touchPosition);
 
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
