@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material 2
+  m_Name: Floor
   m_Shader: {fileID: 4800000, guid: bcda9a4af3b5d8246a2910cff3e5af44, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -81,9 +81,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.31641153, g: 0.5733001, b: 0.8301887, a: 1}
+    - _Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.19508718, g: 0.3449824, b: 0.754717, a: 1}
-    - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.6}
-    - _SColor: {r: 0.5849056, g: 0.22292629, b: 0.5521666, a: 1}
+    - _HColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 0.6}
+    - _SColor: {r: 0.509434, g: 0.19416162, b: 0.4358705, a: 1}
   m_BuildTextureStacks: []
