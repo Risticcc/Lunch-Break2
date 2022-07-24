@@ -172,7 +172,7 @@ public class DragRigidBody : MonoBehaviour{
                 originalScreenTargetPosition = targetCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, selectionDistance));
 
                   
-                originalRigidbodyPos = hitInfo.collider.transform.position - new Vector3(0.9f, 0, 0);
+                originalRigidbodyPos = hitInfo.collider.transform.position - new Vector3(1.5f, 0, 0);
               
 
                 return hitInfo.collider.gameObject.GetComponent<Rigidbody>();

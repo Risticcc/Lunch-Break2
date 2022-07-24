@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Coffe
   m_EditorClassIdentifier: 
   itemName: 
-  price: 2
+  price: 1
   boost: 0.45

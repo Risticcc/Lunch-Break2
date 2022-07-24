@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Soda3
   m_EditorClassIdentifier: 
   itemName: sodda3
-  price: 1
+  price: 2
   boost: 0.2

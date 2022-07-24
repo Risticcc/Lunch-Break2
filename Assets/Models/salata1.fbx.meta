@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: b301df945c269ce48920865d8d6e0593
+guid: b60ee1a46f87fc740b5313f2dd82adcb
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crven
+    second: {fileID: 2100000, guid: 181c3038ddf42f64a88fa54fba2e4ada, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tamno zln
+    second: {fileID: 2100000, guid: e0ec61cf83a911046a6aff9387f72d6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
