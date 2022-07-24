@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static  ScoreManager Instance {get; private set;}
     public Score Score { get => score; set => score = value; }
+    float fill = 0;
 
     //private static int _score = 0;
     [SerializeField] Score score;
@@ -35,7 +36,11 @@ public class ScoreManager : MonoBehaviour
         if(!Score.PriceCheck(amount))
             return false;
 
-        EnergyBar.Instance.Fill(boost);
+        fill += boost;
+        if(fill >= 1)
+            fill = 1;
+            
+        EnergyBar.Instance.Fill(fill);
         return true;
     }
 
