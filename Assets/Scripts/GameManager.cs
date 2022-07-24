@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private GameObject _startPanel;
     private GameObject _gameOverPanel;
     private GameObject _levelUpPanel;
+    private Animator animator;
     void Start()
     {
         if (Instance == null)
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
         _levelUpPanel = GameObject.FindGameObjectWithTag("LevelUp");
       //  _gameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
         InitalizeGame();
+
+        animator = GetComponent<Animator>();
     }
 
     
@@ -59,6 +62,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         EnergyBar.Instance.EmptyBar();
         Debug.Log("3");
+
+       // animator.SetTrigger("start");
     }
 
 
