@@ -18,9 +18,9 @@ public class Strength : ScriptableObject
             strengthChanged = new UnityEvent<int>();
     }
 
-    public void Boost(int amount)
+    public void StrengthBoost(int amount)
     {
         this.amount += amount;
-        strengthChanged?.Invoke(this.amount);
+        //strengthChanged?.Invoke(this.amount); ne koristis trenutno
     }
 }

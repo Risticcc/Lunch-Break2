@@ -5,38 +5,45 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static  ScoreManager Instance {get; private set;}
-    
-    private static int _score = 0;
+    public Score Score { get => score; set => score = value; }
+
+    //private static int _score = 0;
+    [SerializeField] Score score;
     [SerializeField] private TMPro.TextMeshProUGUI _scoreUI;
 
     void Start()
     {
-        if(Instance == null)
+        if(Instance == null){
             Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
         else
             Destroy(gameObject);
 
-        //Load();
-        SaveLoad.ResetGame();
+       // Score.score = SaveLoad.Load(score.ToString());
+        //SaveLoad.ResetGame();
+        Score.scoreChanged.AddListener(ScoreDisplay);
     }
 
-    public void AddScore()
+    public void AddScore(int amount)
     {
-        _score++;
-        ScoreDisplay();
+        Score.MoneyIncome(amount);
     }
 
-    public void MoneySpent(int amount)
+    public bool  MoneySpent(int amount, float boost)
     {
-        _score -= amount;
-        ScoreDisplay();
+        if(!Score.PriceCheck(amount))
+            return false;
+
+        EnergyBar.Instance.Fill(boost);
+        return true;
     }
 
 
-    public void ScoreDisplay()
+    public void ScoreDisplay(int amount)
     {
-        _scoreUI.text = _score.ToString();     
-        SaveLoad.Save("score",_score);
+        _scoreUI.text = amount.ToString();     
+        SaveLoad.Save("score",amount);
     }
 
    

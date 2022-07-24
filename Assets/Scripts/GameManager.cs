@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     private GameObject _startPanel;
     private GameObject _gameOverPanel;
     private GameObject _levelUpPanel;
-
-    private static bool firstLoad = true;
     void Start()
     {
         if (Instance == null)
@@ -25,20 +23,25 @@ public class GameManager : MonoBehaviour
 
         _startPanel = GameObject.FindGameObjectWithTag("StartPanel");
         _levelUpPanel = GameObject.FindGameObjectWithTag("LevelUp");
-        _gameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
+      //  _gameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
         InitalizeGame();
     }
+
+    
 
     private void InitalizeGame()
     {
         Time.timeScale = 0;
-        _gameOverPanel.SetActive(false);
+       // _gameOverPanel.SetActive(false);
 
-        if (!firstLoad)
+        if(SceneManager.GetActiveScene().name == "frizider")
+        {
             _levelUpPanel.SetActive(true);
+            _startPanel.SetActive(false);
+            Time.timeScale = 1;
+        }
         else
         {
-            firstLoad = true;
             _levelUpPanel.SetActive(false);
             _startPanel.SetActive(true);
         }
@@ -50,16 +53,18 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         _startPanel.SetActive(false);
-        _gameOverPanel.SetActive(false);
+       // _gameOverPanel.SetActive(false);
         _levelUpPanel.SetActive(false);
 
         Time.timeScale = 1;
+        EnergyBar.Instance.EmptyBar();
+        Debug.Log("3");
     }
 
 
     public void GameOver()
     {
-        _gameOverPanel.SetActive(true);
+       // _gameOverPanel.SetActive(true);
         _startPanel.SetActive(false);
         _levelUpPanel.SetActive(false);
 
@@ -73,14 +78,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void LevelUp()
-    {
-        //LevelManager.Instance.ChangeLevel();
-        Time.timeScale = 0;
-        _levelUpPanel.SetActive(true);
-        //sound
-        //conmfeti
-    }
+    // public void LevelUp()
+    // {
+    //     //LevelManager.Instance.ChangeLevel();
+    //     Time.timeScale = 0;
+    //     _levelUpPanel.SetActive(true);
+    //     //sound
+    //     //conmfeti
+    // }
 
     //delete all data
     public void ResetGame()
@@ -88,6 +93,18 @@ public class GameManager : MonoBehaviour
         SaveLoad.ResetGame();
         Play();
     }
+
+    //back to work
+    public void NextLevel()
+    {
+        _levelUpPanel.SetActive(false);
+        Debug.Log("sledeci  level");
+        SceneManager.LoadScene("level1");
+
+        
+    }
+
+    
 
 
 }

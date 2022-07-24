@@ -48,7 +48,7 @@ public class ObjectClick : MonoBehaviour
     }
     void Start()
     {
-       this.mainCamera = Camera.main;
+        this.mainCamera = Camera.main;
         animator = GetComponent<Animator>();
 
         basketAnim = GameObject.FindGameObjectWithTag("Basket").GetComponent<BasketAnim>();
@@ -65,11 +65,14 @@ public class ObjectClick : MonoBehaviour
 
     private void Clicked(InputAction.CallbackContext obj)
     {
-        //Vector2 mousePos = Mouse.current.position.ReadValue();
         Vector2 touchPosition= Touchscreen.current.position.ReadValue();
         RaycastHit hit;
+
+        if(this.mainCamera == null)
+            return;
+            
         Ray ray = this.mainCamera.ScreenPointToRay(touchPosition);
-        Debug.Log(touchPosition);
+       
 
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
@@ -81,12 +84,10 @@ public class ObjectClick : MonoBehaviour
 
             }
         }
-                // StartCoroutine(DelayAnim(animator.GetCurrentAnimatorStateInfo(0).length));
-
-
-            }
-        
+        // StartCoroutine(DelayAnim(animator.GetCurrentAnimatorStateInfo(0).length));
     }
+        
+}
 
    
  

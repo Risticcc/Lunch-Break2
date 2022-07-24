@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         CurrentAnimation = AnimationNames.Run.ToString();
         InactiveAnimation = AnimationNames.Carry.ToString();
         
+        StartCoroutine(EnergyCheck());
     }
 
     void Awake()
@@ -119,13 +120,30 @@ public class PlayerController : MonoBehaviour
     public void SlowDownMovement(int decelarateRate)
     {
             _speed -= decelarateRate;
-            animator.speed -= decelarateRate;
+            animator.speed -= decelarateRate/10;
     }
 
     public void IncreaseStrength(int amount)
     {
         //how many boxes player can carry
-        _strength.Boost(amount);
+        _strength.StrengthBoost(amount);
+    }
+
+
+    private IEnumerator EnergyCheck()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject bar = ScoreManager.Instance.gameObject.GetComponent<EnergyBar>().Bar;
+        Debug.Log(bar);
+        if(bar.transform.localScale.x <= 0.5f)
+        {
+                SlowDownMovement(1);
+        }
+        else if(bar.transform.localScale.x == 1f)
+        {
+            playerSpeed = 3;
+            animator.speed = 1;
+        }
     }
     
 

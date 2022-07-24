@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class BoxCollector: MonoBehaviour
 {
-   [Header("Ref")]
-   [SerializeField] private Transform ItemHolder;
-   private PlayerController playerController;
-   private int strength;
-   private int numOfItemHolding = 0;
+    [SerializeField] private Transform ItemHolder;
+    [SerializeField] private int numOfItemHolding = 0; //how many boxes player is carring
+    private PlayerController playerController;
+    private int boxPrice = 1; //make this scriptableobject
 
     public int NumOfItemHolding { get => numOfItemHolding; set => numOfItemHolding = value; }
 
@@ -20,8 +19,6 @@ public class BoxCollector: MonoBehaviour
     }
 
     
-
-
     public bool AddItem(Transform itemToAdd)
     {   
        if(numOfItemHolding >= playerController.Strength.amount)
@@ -36,12 +33,10 @@ public class BoxCollector: MonoBehaviour
         }
         );
         
-
         //set up moving animation
-        playerController.CurrentAnimation = AnimationNames.Carry.ToString();
-        playerController.InactiveAnimation = AnimationNames.Run.ToString();
+         AnimationController(AnimationNames.Carry.ToString(),AnimationNames.Run.ToString());
 
-        return true;
+         return true;
     }
 
     
@@ -58,18 +53,23 @@ public class BoxCollector: MonoBehaviour
         numOfItemHolding = 0;
 
         //set up moving animation
-        playerController.CurrentAnimation = AnimationNames.Run.ToString();
-        playerController.InactiveAnimation = AnimationNames.Carry.ToString();
+        AnimationController(AnimationNames.Run.ToString(), AnimationNames.Carry.ToString());
+    }
+
+
+    //set up active and inactive animations
+    private void AnimationController(string active, string inactive)
+    {
+        playerController.CurrentAnimation = active;
+        playerController.InactiveAnimation = inactive;
     }
 
 
     //Add money
     private void AddPoints()
     {
-        ScoreManager.Instance.AddScore();
+        ScoreManager.Instance.AddScore(boxPrice);
         //neki partikli
         //vibracija
     }
-
-   
 }

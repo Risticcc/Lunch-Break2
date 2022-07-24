@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8528799932435647959}
   - component: {fileID: 6809769951890145293}
   - component: {fileID: 3391878258185521328}
-  - component: {fileID: 7184699973262527408}
   m_Layer: 14
   m_Name: sendvic_2 (1)
   m_TagString: Untagged
@@ -118,15 +117,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5053925668127403250, guid: 64da05ff717b2b24f9404843a0f2ebcd, type: 3}
---- !u!114 &7184699973262527408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7880347350875270146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eda08ad9571c2be4586f39c07bc630a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
