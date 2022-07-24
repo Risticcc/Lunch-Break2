@@ -28,7 +28,7 @@ public class BoxCollector: MonoBehaviour
         ()=>{
             NumOfItemHolding++;
             itemToAdd.SetParent(ItemHolder,true);
-            itemToAdd.localPosition = new Vector3(0, (float)0.25 * NumOfItemHolding,0);
+            itemToAdd.localPosition = new Vector3(0, (float)0.35 * NumOfItemHolding,0);
             itemToAdd.localRotation = Quaternion.identity;
         }
         );
@@ -42,6 +42,8 @@ public class BoxCollector: MonoBehaviour
     
     public void RemoveItems(GameObject player)
     {
+        Debug.Log(player);
+        Debug.Log(transform.GetChild(2));
         foreach(Transform box in player.transform.GetChild(2))
         {
             if(box.gameObject.tag == "CollectItem")

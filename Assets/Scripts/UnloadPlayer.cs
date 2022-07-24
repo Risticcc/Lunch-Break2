@@ -14,7 +14,8 @@ public class UnloadPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         
-        boxController.RemoveItems(other.gameObject);
+        if(other.CompareTag("Player"))
+            boxController.RemoveItems(other.gameObject);
     }
     
     

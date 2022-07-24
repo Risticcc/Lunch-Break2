@@ -134,10 +134,9 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         GameObject bar = ScoreManager.Instance.gameObject.GetComponent<EnergyBar>().Bar;
-        Debug.Log(bar);
         if(bar.transform.localScale.x <= 0.5f)
         {
-                SlowDownMovement(1);
+                SlowDownMovement(2);
         }
         else if(bar.transform.localScale.x == 1f)
         {
