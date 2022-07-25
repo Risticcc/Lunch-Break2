@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UnloadPlayer : MonoBehaviour
 {
-    
+
     private BoxCollector boxController;
     Transform sceneTextAnim;
     [SerializeField]  TextMeshProUGUI text;
@@ -22,8 +22,9 @@ public class UnloadPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         
-        if(other.CompareTag("Player"))
-            boxController.RemoveItems(other.gameObject,color);
+        if(other.CompareTag("Player")){
+             Debug.Log("Bem ti suunnce");
+            boxController.RemoveItems(other.gameObject,color);}
     }
 
     private void SetUpText()
