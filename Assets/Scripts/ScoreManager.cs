@@ -37,8 +37,8 @@ public class ScoreManager : MonoBehaviour
             return false;
 
         fill += boost;
-        if(fill >= 1)
-            fill = 1;
+        if(fill >= 3)
+            fill = 3;
             
         EnergyBar.Instance.Fill(fill);
         return true;

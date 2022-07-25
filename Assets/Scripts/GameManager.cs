@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
         _startPanel = GameObject.FindGameObjectWithTag("StartPanel");
         _levelUpPanel = GameObject.FindGameObjectWithTag("LevelUp");
-      //  _gameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
+        _gameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
         InitalizeGame();
 
         animator = GetComponent<Animator>();
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     private void InitalizeGame()
     {
         Time.timeScale = 0;
-       // _gameOverPanel.SetActive(false);
+        _gameOverPanel.SetActive(false);
 
         if(SceneManager.GetActiveScene().name == "frizider")
         {
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         _startPanel.SetActive(false);
-       // _gameOverPanel.SetActive(false);
+       _gameOverPanel.SetActive(false);
         _levelUpPanel.SetActive(false);
 
         Time.timeScale = 1;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-       // _gameOverPanel.SetActive(true);
+       _gameOverPanel.SetActive(true);
         _startPanel.SetActive(false);
         _levelUpPanel.SetActive(false);
 
