@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/level1.unity
     guid: 414bddd31c5ea4f4c9f5d1452e5bbb41
   - enabled: 1
+    path: Assets/Scenes/level2.unity
+    guid: e9494b57e4f57a545b7123d7bdf370cd
+  - enabled: 1
+    path: Assets/Scenes/level3.unity
+    guid: 30a184c3dc7884149954c6ebc34e24cc
+  - enabled: 1
+    path: Assets/Scenes/level4.unity
+    guid: b88790f042cf3ed4e859a0c0943ecf7d
+  - enabled: 1
     path: Assets/Scenes/frizider.unity
     guid: 90d4eb8c30dbd774aa4c0bc00cdd9e12
   m_configObjects: {}
