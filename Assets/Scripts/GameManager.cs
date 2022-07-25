@@ -84,14 +84,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // public void LevelUp()
-    // {
-    //     //LevelManager.Instance.ChangeLevel();
-    //     Time.timeScale = 0;
-    //     _levelUpPanel.SetActive(true);
-    //     //sound
-    //     //conmfeti
-    // }
+
 
     //delete all data
     public void ResetGame()
@@ -106,11 +99,6 @@ public class GameManager : MonoBehaviour
         _levelUpPanel.SetActive(false);
         Debug.Log("sledeci  level");
         SceneManager.LoadScene("level1");
-
-        
+        //SceneManager.sceneCountInBuildSettings
     }
-
-    
-
-
 }
