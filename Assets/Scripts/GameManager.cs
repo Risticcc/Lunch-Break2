@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    [SerializeField] Button backToWork;
 
     private GameObject _startPanel;
     private GameObject _gameOverPanel;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         _startPanel = GameObject.FindGameObjectWithTag("StartPanel");
         _levelUpPanel = GameObject.FindGameObjectWithTag("LevelUp");
         _gameOverPanel = GameObject.FindGameObjectWithTag("GameOverPanel");
+        backToWork.gameObject.SetActive(false);
         InitalizeGame();
 
         animator = GetComponent<Animator>();
@@ -37,16 +40,16 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         _gameOverPanel.SetActive(false);
+        _levelUpPanel.SetActive(false);
 
         if(SceneManager.GetActiveScene().name == "frizider")
-        {
-            _levelUpPanel.SetActive(true);
+        {  
             _startPanel.SetActive(false);
+            backToWork.gameObject.SetActive(true);
             Time.timeScale = 1;
         }
         else
         {
-            _levelUpPanel.SetActive(false);
             _startPanel.SetActive(true);
         }
     }
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
         _startPanel.SetActive(false);
        _gameOverPanel.SetActive(false);
         _levelUpPanel.SetActive(false);
+        backToWork.gameObject.SetActive(false);
 
         Time.timeScale = 1;
         EnergyBar.Instance.EmptyBar();
@@ -72,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
        _gameOverPanel.SetActive(true);
         _startPanel.SetActive(false);
-        _levelUpPanel.SetActive(false);
+       // _levelUpPanel.SetActive(false);
 
         Time.timeScale = 0;
 
@@ -96,10 +100,22 @@ public class GameManager : MonoBehaviour
     //back to work
     public void NextLevel()
     {
-        _levelUpPanel.SetActive(false);
+        //_levelUpPanel.SetActive(false);
         Debug.Log("sledeci  level");
 
         string nextLevel = LevelManager.Instance.LevelLoader();
         SceneManager.LoadScene(nextLevel);
+    }
+
+    public void MarketTransition()
+    {
+        _levelUpPanel.SetActive(true);
+        _startPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void Market()
+    {
+        SceneManager.LoadScene("frizider");
     }
 }

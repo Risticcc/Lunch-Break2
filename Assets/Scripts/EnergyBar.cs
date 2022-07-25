@@ -29,7 +29,9 @@ public class EnergyBar : MonoBehaviour
     public void EmptyBar()
     {
         LTDescr lt = LeanTween.scaleX(Bar,0,time);
-        lt.setOnComplete(LoadMarket);
+
+       
+            lt.setOnComplete(LoadMarket);
        
     }
 
@@ -44,6 +46,13 @@ public class EnergyBar : MonoBehaviour
 
     private void LoadMarket()
     {
-        SceneManager.LoadScene("frizider");
+         if(Bar.transform.localScale.x == 0 && ScoreManager.Instance.Score.score == 0)
+        {
+            GameManager.Instance.GameOver();
+            Debug.Log("GO");
+        }
+        else
+            GameManager.Instance.MarketTransition();
+            //SceneManager.LoadScene("frizider");
     }
 }

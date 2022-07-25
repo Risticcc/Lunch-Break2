@@ -29,6 +29,13 @@ public class BoxCollector: MonoBehaviour
     {   
        if(numOfItemHolding >= playerController.Strength.amount)
         return false;
+
+    //proba
+        if(holdedItems.Count != 0)
+        {
+            if(holdedItems[0].GetChild(0).GetChild(1).GetComponent<Renderer>().material.color != itemToAdd.GetChild(0).GetChild(1).GetComponent<Renderer>().material.color)
+                return false;
+        }
        
         itemToAdd.DOMove(ItemHolder.transform.position,0.1f).OnComplete(
         ()=>{
