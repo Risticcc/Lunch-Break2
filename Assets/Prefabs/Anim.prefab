@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3414071433454684436, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 622
+      value: 527
       objectReference: {fileID: 0}
     - target: {fileID: 3414071433454684436, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -194,20 +194,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3414071433454684437, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
       propertyPath: m_fontColor.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3414071433454684437, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3414071433454684439, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
       objectReference: {fileID: 0}
     - target: {fileID: 3414071433511379661, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 02db7140fb3d56d4eb9a63ee39970fef, type: 3}
+    - target: {fileID: 3414071433511379661, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3414071433511379661, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 12c720f1dd5674502bc1185ff99b70f9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad0b55565a907a468903c4c9a1ef8c9, type: 3}
 --- !u!224 &2739559376929072547 stripped

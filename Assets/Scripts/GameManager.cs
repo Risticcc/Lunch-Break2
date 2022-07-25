@@ -98,7 +98,8 @@ public class GameManager : MonoBehaviour
     {
         _levelUpPanel.SetActive(false);
         Debug.Log("sledeci  level");
-        SceneManager.LoadScene("level1");
-        //SceneManager.sceneCountInBuildSettings
+
+        string nextLevel = LevelManager.Instance.LevelLoader();
+        SceneManager.LoadScene(nextLevel);
     }
 }

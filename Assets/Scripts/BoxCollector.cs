@@ -1,14 +1,18 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BoxCollector: MonoBehaviour
 {
+    [SerializeField]  TextMeshProUGUI text;
+    [SerializeField] Animator animator;
     [SerializeField] private Transform ItemHolder;
-    [SerializeField] private int numOfItemHolding = 0; //how many boxes player is carring
     private PlayerController playerController;
-    private int boxPrice = 1; //make this scriptableobject
+    private int numOfItemHolding = 0; //amount of boxes player is carring
+    private List<Transform> holdedItems; //currently holded items
+    private int boxPrice = 1; //amount money you will get
 
     public int NumOfItemHolding { get => numOfItemHolding; set => numOfItemHolding = value; }
 
@@ -16,6 +20,8 @@ public class BoxCollector: MonoBehaviour
     void Start()
     {
         playerController = GetComponent<PlayerController>();
+        holdedItems = new List<Transform>();
+
     }
 
     
@@ -28,10 +34,11 @@ public class BoxCollector: MonoBehaviour
         ()=>{
             NumOfItemHolding++;
             itemToAdd.SetParent(ItemHolder,true);
-            itemToAdd.localPosition = new Vector3(0, (float)0.35 * NumOfItemHolding,0);
+            itemToAdd.localPosition = new Vector3(0, (float)0.4 * NumOfItemHolding,0);
             itemToAdd.localRotation = Quaternion.identity;
         }
         );
+        holdedItems.Add(itemToAdd);
         
         //set up moving animation
          AnimationController(AnimationNames.Carry.ToString(),AnimationNames.Run.ToString());
@@ -40,22 +47,44 @@ public class BoxCollector: MonoBehaviour
     }
 
     
-    public void RemoveItems(GameObject player)
+    public void RemoveItems(GameObject player, Color color)
     {
-       // Debug.Log(player);
-        //Debug.Log(transform.GetChild(2));
-        foreach(Transform box in player.transform.GetChild(2))
+        
+        //foreach(Transform box in player.transform.GetChild(2))
+        
+        for(int i = ItemHolder.childCount-1; i > 0; i--)
         {
-            if(box.gameObject.tag == "CollectItem")
+            if(ItemHolder.GetChild(i).gameObject.tag != "CollectItem")
+                return;
+
+            //check color of the boxes
+            if(!ColorCheck(ItemHolder.GetChild(i),color))
             {
-                Destroy(box.gameObject);
+                Debug.Log("razlicite boje");
+                animator.SetTrigger("start");
+                return;
+            }
+            
+            if( holdedItems[holdedItems.Count-1].Equals(ItemHolder.GetChild(i)))
+            {
+                Destroy(ItemHolder.GetChild(i).gameObject);
+                holdedItems.Remove(ItemHolder.GetChild(i));
+                numOfItemHolding --;
                 AddPoints();
             }
         }
-        numOfItemHolding = 0;
 
         //set up moving animation
         AnimationController(AnimationNames.Run.ToString(), AnimationNames.Carry.ToString());
+    }
+
+
+    private bool ColorCheck(Transform box, Color containerColor)
+    {  
+        Color boxColor;
+        boxColor = box.GetChild(0).GetChild(1).GetComponent<Renderer>().material.color;
+        Debug.Log($"Container color {containerColor} , box color{boxColor}");
+        return boxColor.Equals(containerColor);
     }
 
 
