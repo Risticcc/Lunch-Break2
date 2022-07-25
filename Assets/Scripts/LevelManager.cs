@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
         if(currnetLevel == old)
             currnetLevel = Random.Range(1,levelNum);
 
-    
+        Debug.Log(currnetLevel);
         string levelName = "level" + currnetLevel;
         return levelName;
     }
