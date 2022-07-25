@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 public class DragRigidBody : MonoBehaviour{
 // {
@@ -112,6 +113,8 @@ public class DragRigidBody : MonoBehaviour{
     Vector3 originalScreenTargetPosition;
     Vector3 originalRigidbodyPos;
     float selectionDistance;
+    private Animator animator;
+    private  Transform sceneTextAnim;
 
     private bool used = false;
 
@@ -163,8 +166,6 @@ public class DragRigidBody : MonoBehaviour{
                  Debug.Log(hitInfo.collider.gameObject);
                 if(!CanDrag(hitInfo.collider.gameObject))
                 {
-                    Debug.Log("Nemas para");
-                    //animation you dont have enough money
                     return null;
                 }
 
@@ -186,13 +187,43 @@ public class DragRigidBody : MonoBehaviour{
     //Function returns true or false, depends on can player buy item
     private bool CanDrag(GameObject item)
     {
+        //child 1 is for money spent animation
+        //child 2 is for you dont have enough money
+        string text;
         Item ic = item.GetComponent<ItemController>().item;
-        
+       if(ScoreManager.Instance.MoneySpent(ic.price, ic.boost))
+       {
+            text = "+Boost";
+            SetUpText(text,1);
 
-         //Debug.Log($"PRICE {price} AMOUNT {ScoreManager.Instance.Score.score}");
-       return ScoreManager.Instance.MoneySpent(ic.price, ic.boost);
+            sceneTextAnim.gameObject.SetActive(true);
+            animator.SetTrigger("fridgeAnim");
+            return true;
+       }
+       else{
+            Debug.Log("Nemas para");
+            text = "need money to buy!";
+            SetUpText(text,0);
+
+            sceneTextAnim.gameObject.SetActive(true);
+            animator.SetTrigger("fridgeAnim");
+            return false;
+       }
        //return false;
     }
-   
 
+
+    private void SetUpText(string text, int child)
+    {
+        sceneTextAnim = GameObject.FindGameObjectWithTag("sceneTextAnim").transform.GetChild(child);
+        animator = sceneTextAnim.gameObject.GetComponent<Animator>();
+        sceneTextAnim.GetComponent<TextMeshProUGUI>().text = text;
+
+        sceneTextAnim.gameObject.SetActive(false);
+
+    }
 }
+
+
+
+

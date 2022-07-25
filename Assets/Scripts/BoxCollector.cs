@@ -42,8 +42,8 @@ public class BoxCollector: MonoBehaviour
     
     public void RemoveItems(GameObject player)
     {
-        Debug.Log(player);
-        Debug.Log(transform.GetChild(2));
+       // Debug.Log(player);
+        //Debug.Log(transform.GetChild(2));
         foreach(Transform box in player.transform.GetChild(2))
         {
             if(box.gameObject.tag == "CollectItem")

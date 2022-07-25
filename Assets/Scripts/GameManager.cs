@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         InitalizeGame();
 
         animator = GetComponent<Animator>();
+        //ScoreManager.Instance.LoadScore();
     }
 
     

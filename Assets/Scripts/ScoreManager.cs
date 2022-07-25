@@ -51,5 +51,10 @@ public class ScoreManager : MonoBehaviour
         SaveLoad.Save("score",amount);
     }
 
+    public void LoadScore()
+    {
+        Score.score = SaveLoad.Load(score.ToString());
+    }
+
    
 }
