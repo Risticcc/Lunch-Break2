@@ -52,7 +52,7 @@ public class BoxCollector: MonoBehaviour
         
         //foreach(Transform box in player.transform.GetChild(2))
         
-        for(int i = ItemHolder.childCount-1; i > 0; i--)
+        for(int i = ItemHolder.childCount-1; i >= 0; i--)
         {
             if(ItemHolder.GetChild(i).gameObject.tag != "CollectItem")
                 return;
@@ -72,6 +72,7 @@ public class BoxCollector: MonoBehaviour
                 numOfItemHolding --;
                 AddPoints();
             }
+            Debug.Log("AAA");
         }
 
         //set up moving animation

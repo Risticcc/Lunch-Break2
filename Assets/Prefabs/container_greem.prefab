@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8506659268308063980}
   - component: {fileID: 8506659268308063983}
   - component: {fileID: 8506659268308063982}
-  - component: {fileID: 8506659268308063985}
+  - component: {fileID: 1762883775}
   m_Layer: 0
   m_Name: container_greem
   m_TagString: Untagged
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0cbec364afb1c234ba87aedac7234746, type: 2}
+  - {fileID: 2100000, guid: b4547840c20d32b46a33ab3a2af26d26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,8 +98,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.8980212, y: 1.1397312, z: 2.609669}
-  m_Center: {x: 0.19599771, y: -1.2902268, z: 0.3548336}
+  m_Size: {x: 4.7377915, y: 1.1397312, z: 3.3568926}
+  m_Center: {x: -0.2238872, y: -1.2902255, z: -0.41495085}
 --- !u!114 &8506659268308063982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 4909487132938710714}
   animator: {fileID: 4909487132938710716}
---- !u!65 &8506659268308063985
+--- !u!65 &1762883775
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.525, y: 1.5001974, z: 1.9000005}
-  m_Center: {x: 0.00948602, y: -0.3947173, z: -0.00000023841858}
+  m_Center: {x: 0.00948602, y: -0.39471737, z: 0}
 --- !u!1001 &7072584580336388888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +134,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8506659269220922121}
     m_Modifications:
+    - target: {fileID: 2739559376717319802, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739559376929072546, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739559376929072546, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739559376929072547, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739559376929072547, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 344
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739559376929072547, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -418
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739559376929072548, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6282084506778272908, guid: a1ca57456504f7642a0aab302fab9f03, type: 3}
       propertyPath: m_Pivot.x
       value: 0
