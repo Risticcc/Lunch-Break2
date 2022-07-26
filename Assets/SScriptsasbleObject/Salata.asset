@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   price: 4
-  boost: 0
+  boost: 0.35
