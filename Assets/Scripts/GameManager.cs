@@ -66,7 +66,8 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1;
         EnergyBar.Instance.EmptyBar();
-        Debug.Log("3");
+        TinySauce.OnGameStarted();
+       
 
        // animator.SetTrigger("start");
     }
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
        _gameOverPanel.SetActive(true);
         _startPanel.SetActive(false);
        // _levelUpPanel.SetActive(false);
-
+        TinySauce.OnGameFinished(ScoreManager.Instance.Score.score);
         Time.timeScale = 0;
 
     }
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         //_levelUpPanel.SetActive(false);
-        Debug.Log("sledeci  level");
+       
 
         string nextLevel = LevelManager.Instance.LevelLoader();
         SceneManager.LoadScene(nextLevel);

@@ -23,7 +23,6 @@ public class UnloadPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         
         if(other.CompareTag("Player")){
-             Debug.Log("Bem ti suunnce");
             boxController.RemoveItems(other.gameObject,color);}
     }
 

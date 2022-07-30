@@ -163,7 +163,7 @@ public class DragRigidBody : MonoBehaviour{
                 
             if (hitInfo.collider.gameObject.GetComponent<Rigidbody>())
             {
-                 Debug.Log(hitInfo.collider.gameObject);
+                
                 if(!CanDrag(hitInfo.collider.gameObject))
                 {
                     return null;

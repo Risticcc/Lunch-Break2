@@ -79,7 +79,6 @@ public class BoxCollector: MonoBehaviour
                 numOfItemHolding --;
                 AddPoints();
             }
-            Debug.Log("AAA");
         }
 
         //set up moving animation
